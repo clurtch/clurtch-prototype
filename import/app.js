@@ -1,3 +1,13 @@
+
+/*
+ *  * Main application file
+ *  This Server is a start up template server.
+ *  Use this for data processing logic
+ *
+ *
+ *
+ */
+
 (function() {
   var app, config, exports, express, server;
 
@@ -12,8 +22,6 @@
   server = require('http').createServer(app);
 
   require('./config/express')(app);
-
-  require('./routes').applyRoutes(app);
 
   server.listen(config.port, config.ip, function() {
     return console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));

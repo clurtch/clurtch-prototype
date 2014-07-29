@@ -32,9 +32,18 @@ exports.getByLocation = (req, res)->
   if req.body.val then data.name = req.body.val
   console.log "Fuck Yelp", data
   Venue.search data, (response)->
-    res.json(200, response.objects)
     console.log response
+    res.json(200, response.objects)
 
+
+  # This comment below is for an api call to the Factual api.
+  # Factual is much faster than the Venu (locu) api
+  # We are using locu for menu data
+  # Ask Joel Before changing
+  # TODO: Configure google places on the front end to eliminate the need for api calls on restful routes
+  #
+  #
+  #
   # factual.get('/t/places/', {q:req.body.val, geo:{"$circle":{"$center":[req.body.lat,req.body.lng],"$meters":5000}}}
   # ,(err, result)->
   #   if err then return handleError(res, err)
@@ -58,7 +67,7 @@ exports.show = (req, res)->
     else
       res.json(200, result.data[0])
       # res.json(200, response.objects[0])
-  
+
 
 # Creates a new Business in the DB.
 # http://localhost:9000/api/menus/
